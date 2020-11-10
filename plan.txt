@@ -7,31 +7,38 @@ pokemon elements
 
 hva må gjøres.
 
-1. spiller må kunne velge hvilket element spiller vil ha. (controller)
+1. Angelica. spiller må kunne velge hvilket element spiller vil ha. (controller)
     - function som setter variablen valgSpiller til det som ble trykket på. får parameter(nr) inn som parameter.
 
-2. randomisering av hvilket element computer skal ha. (controller)
+2. Sindre. randomisering av hvilket element computer skal ha. (controller)
     - lage et tilfeldig nr fra og med 0 til og med 16 og sette variablen valgCpu til nummeret.
 
-3. noe som sjekker hvem som vinner eller om det blir uavgjort. (controller)
-    sjekk om spiller vinner, eller cpu vinner eller om det ble uavgjort. hvis spiller vinner så plusses 1 på variablen scoreSpiller. samme med scoreCpu og uavgjort.
+3. Mikael. noe som sjekker hvem som vinner eller om det blir uavgjort. (controller)
+    - sjekk om spiller vinner, eller cpu vinner eller om det ble uavgjort. hvis spiller vinner så plusses 1 på variablen scoreSpiller. - - samme med scoreCpu og uavgjort.
 
-4. noe som viser fram hva spiller og computer har valgt og hvem som vant eller om det ble uavgjort. (controller)
-    content = valgHTML, vinnerHTML
+4. Mikael. timer som resetter spillet så spiller får valgt på nytt. (controller)
+    - standard timerfunction.
 
-5. timer som resetter spillet så spiller får valgt på nytt. (controller)
-    standard timerfunction.
+5. Kristian, updateView() (view) (6. 7.)
+    X. noe som viser fram hva spiller og computer har valgt og hvem som vant eller om det ble uavgjort. (controller)
+    - content = valgHtml, vinnerHtml
+    X. vise fram score resultatene (controller)
+    - grov CSS
 
-X. måte holde scorecount. (best ut av ?) (controller) gjøres av seg selv
+6. CSS
+    - Gjøres felles til slutt.
 
-6. vise fram score resultatene (controller)
-
-7. updateView() (view) (6. 7.)
-
-8. CSS
+X. Linn. måte holde scorecount. (best ut av ?) (controller) 
+    - gjøres av seg selv
 
 
 // model
+
+    content- hva som vises av valgHTML
+    let content
+    let valgHtml
+    let vinnerHtml
+
     scoreresultatene
     vises hele tiden
     let scoreSpiller - hvor mange ganger spiller har vunnet

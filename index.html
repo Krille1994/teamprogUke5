@@ -14,10 +14,11 @@
             background-color: aqua;
             display: inline-block;
             margin: 5px;
-            width: 60px;
+            width: 75px;
             height: 40px;
             text-align: center;
             padding-top: 10px;
+            font-size: 20px;
         }
         #valgPage {
             height: 100vh;
@@ -60,10 +61,23 @@
         #resultat {
             font-size: 100px;
         }
+
+        #scoreMinigameContainer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
         #miniGame {
             float: right;
+            margin: 10px 20px 0 0;
         }
-        
+        #score {
+            margin: 10px 0 20px 20px;
+            
+        }
+        .whichPlayer {
+            font-size: xx-large;
+        }
 
 
     </style>
@@ -90,8 +104,8 @@
 
         let contentVal = 0;
 
-        let valgSpiller;
-        let valgCpu;
+        let valgSpiller = '';
+        let valgCpu = '';
 
         let imgElement0 = '<img src="grass.png">';
         let imgElement1 = '<img src="grass.png">';
@@ -110,7 +124,7 @@
         let imgElement14 = '<img src="grass.png">';
         let imgElement15 = '<img src="grass.png">';
         let imgElement16 = '<img src="grass.png">';
-        let playerElementchoicePicture = imgElement0;
+        let playerElementChoicePicture = imgElement0;
         let cpuElementChoicePicture = imgElement1;
 
         let resultat = 'Player Wins!'
@@ -125,18 +139,19 @@
         updateView();
         function updateView() {
             vinnerHtml =`<div id="resultPage">
+                        <div id="scoreMinigameContainer">
                         <div id="score">Player score: ${scoreSpiller}<br> Computer score: ${scoreCpu} <br> Number of ties: ${uavgjort} <br>Rounds played ${antallRunder} </div>
                         </div>
                         <div id="miniGame">Minigame <br>Your Score: ${playerScore} </br>
-                            ComputerScore: ${computerScore} </br>
+                            ComputerScore: ${computerScore} 
                             <button onclick="playLinnGame()">Play</button>
-                        </div> 
+                        </div></div>
                         <div id="vinnerPage">
                         <div id="inner">
-                        <div id="playerSide">Players choice
-                        <div id="playerElementPicture">${playerElementchoicePicture}</div>
+                        <div id="playerSide" class="whichPlayer">Players choice
+                        <div id="playerElementPicture">${playerElementChoicePicture}</div>
                         </div><div id="VS">VS</div>
-                        <div id="cpuSide">Computers choice
+                        <div id="cpuSide" class="whichPlayer">Computers choice
                         <div id="cpuElementPicture">${cpuElementChoicePicture}</div>
                         </div>
                         <div id="resultat">${resultat}</div>
@@ -146,16 +161,18 @@
 
             valgHtml  = `<div id="valgPage">
                         <div id="informationGrid">
+                        <div id="scoreMinigameContainer">
                         <div id="score">Player score: ${scoreSpiller}<br> Computer score: ${scoreCpu} <br> Number of ties: ${uavgjort} <br>Rounds played ${antallRunder} </div>
                         <div id="miniGame">Minigame <br>Your Score: ${playerScore} </br>
                             ComputerScore: ${computerScore} </br>
                             <button onclick="playLinnGame()">Play</button>
                         </div> 
                         </div>
+                        </div>
                         <div id="buttonsGrid">
                         <div class="element" onclick="playerChoice(0)">Fire</div>
                         <div class="element" onclick="playerChoice(1)">Water</div>
-                        <div class="element" onclick="playerChoice(2)">Electic</div>
+                        <div class="element" onclick="playerChoice(2)">Electric</div>
                         <div class="element" onclick="playerChoice(3)">Grass</div>
                         <div class="element" onclick="playerChoice(4)">Ice</div>
                         <div class="element" onclick="playerChoice(5)">Fighting</div>
@@ -179,6 +196,11 @@
     
 
         // Controller
+        
+        function cpuChoice() {
+            valgCpu = Math.floor(Math.random() * 17);
+        }
+
         function playLinnGame(){
             let random = Math.floor(Math.random()*2);
     
@@ -187,7 +209,20 @@
 
             updateView();
         }
+        function playerChoice(nr) {
+            valgSpiller = nr;
+        }
 
+        function checkWinner() {
+            
+        }
+
+        function gameReset() {
+            valgSpiller = '';
+            valgCpu = '';
+            contentVal = 0;
+            
+        }
     </script>
     
 </body>

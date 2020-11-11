@@ -3,9 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Battle Of The Elements</title>
+    <style>
+       
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .element {
+            background-color: aqua;
+            display: inline-block;
+            margin: 5px;
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            padding-top: 10px;
+        }
+        #valgPage {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            grid-template-rows: 2fr 1fr;
+        }
+        #buttonsGrid {
+            background-color: bisque;
+        }
+        #informationGrid {
+            background-color: coral;
+        }
+        #resultPage {
+            display: flex;
+            width: 100vw;
+        }
+        #vinnerPage {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+        }
+        #app {
+            width: 100vw;
+            height: 100vh;
+        }
+        #inner {
+            background-color: darkgoldenrod;
+            width: 80%;
+            text-align: center;
+
+        }
+        #inner > div{
+            display: inline-block;
+        }
+        #VS {
+            font-size: 100px;
+        }
+        #resultat {
+            font-size: 100px;
+        }
+        #miniGame {
+            float: right;
+        }
+        
+
+
+    </style>
 </head>
 <body>
+
+    <div id="app"></div>
+    
+    
+
+    <script>
+
+        // Model
+
+        // Linn sin minigame
+        let playerScore = 0;
+        let computerScore = 0;
+        // Linn sin minigame slutt
+
+        let scoreSpiller = 0;
+        let scoreCpu = 0;
+        let uavgjort = 0;
+        let antallRunder = 0;
+
+        let contentVal = 0;
+
+        let valgSpiller;
+        let valgCpu;
+
+        let imgElement0 = '<img src="grass.png">';
+        let imgElement1 = '<img src="grass.png">';
+        let imgElement2 = '<img src="grass.png">';
+        let imgElement3 = '<img src="grass.png">';
+        let imgElement4 = '<img src="grass.png">';
+        let imgElement5 = '<img src="grass.png">';
+        let imgElement6 = '<img src="grass.png">';
+        let imgElement7 = '<img src="grass.png">';
+        let imgElement8 = '<img src="grass.png">';
+        let imgElement9 = '<img src="grass.png">';
+        let imgElement10 = '<img src="grass.png">';
+        let imgElement11 = '<img src="grass.png">';
+        let imgElement12 = '<img src="grass.png">';
+        let imgElement13 = '<img src="grass.png">';
+        let imgElement14 = '<img src="grass.png">';
+        let imgElement15 = '<img src="grass.png">';
+        let imgElement16 = '<img src="grass.png">';
+        let playerElementchoicePicture = imgElement0;
+        let cpuElementChoicePicture = imgElement1;
+
+        let resultat = 'Player Wins!'
+        
+
+        // Html for siden der man velger hvilket element
+        let valgHtml;
+
+        let vinnerHtml;
+
+        // View
+        updateView();
+        function updateView() {
+            vinnerHtml =`<div id="resultPage">
+                        <div id="score">Player score: ${scoreSpiller}<br> Computer score: ${scoreCpu} <br> Number of ties: ${uavgjort} <br>Rounds played ${antallRunder} </div>
+                        </div>
+                        <div id="miniGame">Minigame <br>Your Score: ${playerScore} </br>
+                            ComputerScore: ${computerScore} </br>
+                            <button onclick="playLinnGame()">Play</button>
+                        </div> 
+                        <div id="vinnerPage">
+                        <div id="inner">
+                        <div id="playerSide">Players choice
+                        <div id="playerElementPicture">${playerElementchoicePicture}</div>
+                        </div><div id="VS">VS</div>
+                        <div id="cpuSide">Computers choice
+                        <div id="cpuElementPicture">${cpuElementChoicePicture}</div>
+                        </div>
+                        <div id="resultat">${resultat}</div>
+                        </div>
+                        </div>
+                        </div>`;
+
+            valgHtml  = `<div id="valgPage">
+                        <div id="informationGrid">
+                        <div id="score">Player score: ${scoreSpiller}<br> Computer score: ${scoreCpu} <br> Number of ties: ${uavgjort} <br>Rounds played ${antallRunder} </div>
+                        <div id="miniGame">Minigame <br>Your Score: ${playerScore} </br>
+                            ComputerScore: ${computerScore} </br>
+                            <button onclick="playLinnGame()">Play</button>
+                        </div> 
+                        </div>
+                        <div id="buttonsGrid">
+                        <div class="element" onclick="playerChoice(0)">Fire</div>
+                        <div class="element" onclick="playerChoice(1)">Water</div>
+                        <div class="element" onclick="playerChoice(2)">Electic</div>
+                        <div class="element" onclick="playerChoice(3)">Grass</div>
+                        <div class="element" onclick="playerChoice(4)">Ice</div>
+                        <div class="element" onclick="playerChoice(5)">Fighting</div>
+                        <div class="element" onclick="playerChoice(6)">Poison</div>
+                        <div class="element" onclick="playerChoice(7)">Ground</div>
+                        <div class="element" onclick="playerChoice(8)">Flying</div>
+                        <div class="element" onclick="playerChoice(9)">Psychic</div>
+                        <div class="element" onclick="playerChoice(10)">Bug</div>
+                        <div class="element" onclick="playerChoice(11)">Rock</div>
+                        <div class="element" onclick="playerChoice(12)">Ghost</div>
+                        <div class="element" onclick="playerChoice(13)">Dragon</div>
+                        <div class="element" onclick="playerChoice(14)">Dark</div>
+                        <div class="element" onclick="playerChoice(15)">Steel</div>
+                        <div class="element" onclick="playerChoice(16)">Fairy</div>
+                        </div>
+                        </div>`;
+            contentVal == 0 ? content = valgHtml : content = vinnerHtml;
+
+            document.getElementById("app").innerHTML = content;
+        }
+    
+
+        // Controller
+        function playLinnGame(){
+            let random = Math.floor(Math.random()*2);
+    
+            if(random < 1){playerScore++;}
+            else {computerScore++;}
+
+            updateView();
+        }
+
+    </script>
     
 </body>
 </html>

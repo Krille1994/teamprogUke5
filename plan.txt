@@ -19,17 +19,19 @@ hva må gjøres.
 4. Mikael. timer som resetter spillet så spiller får valgt på nytt. (controller)
     - standard timerfunction.
 
-5. Kristian, updateView() (view) (6. 7.)
-    X. noe som viser fram hva spiller og computer har valgt og hvem som vant eller om det ble uavgjort. (controller)
-    - content = valgHtml, vinnerHtml
-    X. vise fram score resultatene (controller)
-    - grov CSS
+5. Kristian. updateView() (view) (6. 7.)
+    1. noe som viser fram hva spiller og computer har valgt og hvem som vant eller om det ble uavgjort. (controller)
+        - content = valgHTML, vinnerHTML
+        - updateview
+    2. vise fram score resultatene (controller)
+        - updateView ting
+        - grovt CSS
 
-6. CSS
-    - Gjøres felles til slutt.
+6. CSS - pynte CSS
+    - tas til slutt felles
 
-X. Linn. måte holde scorecount. (best ut av ?) (controller) 
-    - gjøres av seg selv
+7. Linn. måte holde scorecount. (best ut av ?) (controller) 
+    -gjøres av seg selv
 
 
 // model

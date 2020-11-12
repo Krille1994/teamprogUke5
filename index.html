@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=ZCOOL KuaiLe' rel='stylesheet'>
     <title>Battle Of The Elements</title>
     <style>
-       
+
         body {
             margin: 0;
             padding: 0;
         }
         .element {
-            background-color: aqua;
             display: inline-block;
-            margin: 5px;
+            margin: 25px 5px;
             width: 75px;
             height: 40px;
             text-align: center;
             padding-top: 10px;
-            font-size: 20px;
+            font-family: 'ZCOOL KuaiLe';
+            font-size: 15px;
         }
         #valgPage {
             height: 100vh;
@@ -27,10 +28,13 @@
             grid-template-rows: 2fr 1fr;
         }
         #buttonsGrid {
-            background-color: bisque;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         #informationGrid {
-            background-color: coral;
+            background-image: '<img src="battleoftheelements.png" height"20" width"30">';
         }
         #resultPage {
             display: flex;
@@ -56,9 +60,11 @@
             display: inline-block;
         }
         #VS {
+            font-family: 'ZCOOL KuaiLe';
             font-size: 100px;
         }
         #resultat {
+            font-family: 'ZCOOL KuaiLe';
             font-size: 100px;
         }
 
@@ -73,9 +79,10 @@
         }
         #score {
             margin: 10px 0 20px 20px;
-            
+
         }
         .whichPlayer {
+            font-family: 'ZCOOL KuaiLe';
             font-size: xx-large;
         }
 
@@ -85,8 +92,8 @@
 <body>
 
     <div id="app"></div>
-    
-    
+
+
 
     <script>
 
@@ -107,28 +114,39 @@
         let valgSpiller = '';
         let valgCpu = '';
 
-        let imgElement0 = '<img src="grass.png">';
-        let imgElement1 = '<img src="grass.png">';
-        let imgElement2 = '<img src="grass.png">';
-        let imgElement3 = '<img src="grass.png">';
+        let imgElement0 = '<img src="normal.png">';
+        let imgElement1 = '<img src="fire.png">';
+        let imgElement2 = '<img src="water.png">';
+        let imgElement3 = '<img src="electric.png">';
         let imgElement4 = '<img src="grass.png">';
-        let imgElement5 = '<img src="grass.png">';
-        let imgElement6 = '<img src="grass.png">';
-        let imgElement7 = '<img src="grass.png">';
-        let imgElement8 = '<img src="grass.png">';
-        let imgElement9 = '<img src="grass.png">';
-        let imgElement10 = '<img src="grass.png">';
-        let imgElement11 = '<img src="grass.png">';
-        let imgElement12 = '<img src="grass.png">';
-        let imgElement13 = '<img src="grass.png">';
-        let imgElement14 = '<img src="grass.png">';
-        let imgElement15 = '<img src="grass.png">';
-        let imgElement16 = '<img src="grass.png">';
-        let playerElementChoicePicture = imgElement0;
-        let cpuElementChoicePicture = imgElement1;
+        let imgElement5 = '<img src="ice.png">';
+        let imgElement6 = '<img src="fighting.png">';
+        let imgElement7 = '<img src="poison.png">';
+        let imgElement8 = '<img src="ground.png">';
+        let imgElement9 = '<img src="flying.png">';
+        let imgElement10 = '<img src="psychic.png">';
+        let imgElement11 = '<img src="bug.png">';
+        let imgElement12 = '<img src="rock.png">';
+        let imgElement13 = '<img src="ghost.png">';
+        let imgElement14 = '<img src="dragon.png">';
+        let imgElement15 = '<img src="dark.png">';
+        let imgElement16 = '<img src="steel.png">';
+        let imgElement17 = '<img src="fairy.png">';
+
+        let imgArray = ['<img src="normal.png">', '<img src="fire.png">',
+                        '<img src="water.png">', '<img src="electric.png">',
+                        '<img src="grass.png">', '<img src="ice.png">',
+                        '<img src="fighting.png">', '<img src="poison.png">',
+                        '<img src="ground.png">', '<img src="flying.png">',
+                        '<img src="psychic.png">', '<img src="bug.png">',
+                        '<img src="rock.png">', '<img src="ghost.png">',
+                        '<img src="dragon.png">', '<img src="dark.png">',
+                        '<img src="steel.png">', '<img src="fairy.png">']
+        let playerElementChoicePicture = '<img src="grass.png">';
+        let cpuElementChoicePicture = '<img src="steel.png">';
 
         let resultat = 'Player Wins!'
-        
+
 
         // Html for siden der man velger hvilket element
         let valgHtml;
@@ -142,8 +160,8 @@
                         <div id="scoreMinigameContainer">
                         <div id="score">Player score: ${scoreSpiller}<br> Computer score: ${scoreCpu} <br> Number of ties: ${uavgjort} <br>Rounds played ${antallRunder} </div>
                         </div>
-                        <div id="miniGame">Minigame <br>Your Score: ${playerScore} </br>
-                            ComputerScore: ${computerScore} 
+                        <div id="miniGame">Linns Minigame <br>Your Score: ${playerScore} </br>
+                            ComputerScore: ${computerScore}
                             <button onclick="playLinnGame()">Play</button>
                         </div></div>
                         <div id="vinnerPage">
@@ -163,47 +181,48 @@
                         <div id="informationGrid">
                         <div id="scoreMinigameContainer">
                         <div id="score">Player score: ${scoreSpiller}<br> Computer score: ${scoreCpu} <br> Number of ties: ${uavgjort} <br>Rounds played ${antallRunder} </div>
-                        <div id="miniGame">Minigame <br>Your Score: ${playerScore} </br>
+                        <div id="miniGame">Linns Minigame <br>Your Score: ${playerScore} </br>
                             ComputerScore: ${computerScore} </br>
                             <button onclick="playLinnGame()">Play</button>
-                        </div> 
+                        </div>
                         </div>
                         </div>
                         <div id="buttonsGrid">
-                        <div class="element" onclick="playerChoice(0)">Fire</div>
-                        <div class="element" onclick="playerChoice(1)">Water</div>
-                        <div class="element" onclick="playerChoice(2)">Electric</div>
-                        <div class="element" onclick="playerChoice(3)">Grass</div>
-                        <div class="element" onclick="playerChoice(4)">Ice</div>
-                        <div class="element" onclick="playerChoice(5)">Fighting</div>
-                        <div class="element" onclick="playerChoice(6)">Poison</div>
-                        <div class="element" onclick="playerChoice(7)">Ground</div>
-                        <div class="element" onclick="playerChoice(8)">Flying</div>
-                        <div class="element" onclick="playerChoice(9)">Psychic</div>
-                        <div class="element" onclick="playerChoice(10)">Bug</div>
-                        <div class="element" onclick="playerChoice(11)">Rock</div>
-                        <div class="element" onclick="playerChoice(12)">Ghost</div>
-                        <div class="element" onclick="playerChoice(13)">Dragon</div>
-                        <div class="element" onclick="playerChoice(14)">Dark</div>
-                        <div class="element" onclick="playerChoice(15)">Steel</div>
-                        <div class="element" onclick="playerChoice(16)">Fairy</div>
+                        <div class="element" onclick="playerChoice(0)"><img src="normal.png" width="60" higth="50">NORMAL</div>
+                        <div class="element" onclick="playerChoice(1)"><img src="fire.png" width="60" higth="50">FIRE</div>
+                        <div class="element" onclick="playerChoice(2)"><img src="water.png" width="60" hight="50">WATER</div>
+                        <div class="element" onclick="playerChoice(3)"><img src="electric.png" width="60" hight="50">ELECTRIC</div>
+                        <div class="element" onclick="playerChoice(4)"><img src="grass.png" width="60" hight="50">GRASS</div>
+                        <div class="element" onclick="playerChoice(5)"><img src="ice.png" width="60" hight="50">ICE</div>
+                        <div class="element" onclick="playerChoice(6)"><img src="fighting.png" width="60" hight="50">FIGHTING</div>
+                        <div class="element" onclick="playerChoice(7)"><img src="poison.png" width="60" hight="50">POISON</div>
+                        <div class="element" onclick="playerChoice(8)"><img src="ground.png" width="60" hight="50">GROUND</div>
+                        <div id="clearElement" class="element" onclick="playerChoice(9)"><img src="flying.png" width="60" hight="50">FLYING</div>
+                        <div class="element" onclick="playerChoice(10)"><img src="psychic.png" width="60" hight="50">PSYCHIC</div>
+                        <div class="element" onclick="playerChoice(11)"><img src="bug.png" width="60" hight="50">BUG</div>
+                        <div class="element" onclick="playerChoice(12)"><img src="rock.png" width="60" hight="50">ROCK</div>
+                        <div class="element" onclick="playerChoice(13)"><img src="ghost.png" width="60" hight="50">GHOST</div>
+                        <div class="element" onclick="playerChoice(14)"><img src="dragon.png" width="60" hight="50">DRAGON</div>
+                        <div class="element" onclick="playerChoice(15)"><img src="dark.png" width="60" hight="50">DARK</div>
+                        <div class="element" onclick="playerChoice(16)"><img src="steel.png" width="60" hight="50">STEEL</div>
+                        <div class="element" onclick="playerChoice(17)"><img src="fairy.png" width="60" hight="50">FAIRY</div>
                         </div>
                         </div>`;
             contentVal == 0 ? content = valgHtml : content = vinnerHtml;
 
             document.getElementById("app").innerHTML = content;
         }
-    
+
 
         // Controller
-        
-        function cpuChoice() {
-            valgCpu = Math.floor(Math.random() * 17);
+
+        function cpuChoice(){
+            valgCpu = Math.floor(Math.random() * 18);
         }
 
         function playLinnGame(){
             let random = Math.floor(Math.random()*2);
-    
+
             if(random < 1){playerScore++;}
             else {computerScore++;}
 
@@ -212,18 +231,35 @@
         function playerChoice(nr) {
             valgSpiller = nr;
         }
+        
+        // function checkWinner() {
+        //     if ((valgSpiller == 0 && (valgCpu == 2
+        //                         ||valgCpu == 4
+        //                         ||valgCpu == 10
+        //                         ||valgCpu == 15)) ||
+        //         (valgSpiller == 1 && (valgCpu == 0
+        //                         ||valgCpu == 7
+        //                         ||valgCpu == 11))
+        //         (valgSpiller == 2 && ())
+        //         ) {};
+        //     else if (valgSpiller == 1 &&(valgCpu == 0
+        //                         ||valgCpu == 7
+        //                         ||valgCpu == 11)) {};
 
-        function checkWinner() {
-            
+        // }
+
+        function setPicture() {
+            playerElementChoicePicture = imgArray[valgSpiller];
+            cpuElementChoicePicture = imgArray[valgCpu];
         }
 
         function gameReset() {
             valgSpiller = '';
             valgCpu = '';
             contentVal = 0;
-            
+
         }
     </script>
-    
+
 </body>
 </html>
